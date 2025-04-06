@@ -20,6 +20,8 @@ const Navbar = () => {
     { name: "I-Cubation", href: "#icubation" },
     { name: "Vision", href: "#vision" },
     { name: "Media", href: "#media" },
+    { name: "Interview", href: "#interview" },
+    { name: "Pitch Guidelines", href: "#pitch-guidelines" },
   ];
 
   return (

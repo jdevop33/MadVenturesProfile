@@ -6,6 +6,8 @@ import Company from "@/components/sections/Company";
 import ICubation from "@/components/sections/ICubation";
 import Vision from "@/components/sections/Vision";
 import MediaHighlights from "@/components/sections/MediaHighlights";
+import Interview from "@/components/sections/Interview";
+import PitchGuidelines from "@/components/sections/PitchGuidelines";
 import Contact from "@/components/sections/Contact";
 import { useEffect } from "react";
 
@@ -52,6 +54,8 @@ const Home = () => {
         <ICubation />
         <Vision />
         <MediaHighlights />
+        <Interview />
+        <PitchGuidelines />
         <Contact />
       </main>
       <Footer />

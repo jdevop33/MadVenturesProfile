@@ -1,0 +1,58 @@
+Thomas talks about four key aspects of your technology startup that he wants to hear about:
+
+Problem: What is the problem that your customer face? Why is it important? Why do something about it now? Why is it getting worst?
+Solution: What is the solution? What is it that you’re providing?
+Team: Who you are? Why are you the right team to solve this problem?
+Unfair Advantage: What’s unique about your business that can’t be easily copied or bought (team, domain expertise, personal authority, existing customers, etc.)
+As to form
+
+Start with a hook or something that will capture your audience’s attention.
+End with a bang so that investors are interested.
+Keep it short, the time between your hook and bang should be long enough to cover the four key items but as brief as possible.
+Thomas offered a four second pitch for Mad Ventures “We are a micro venture capital and we give money.”
+
+Thomas recommends the “Art of the Start” by Guy Kawasaki,  saying that it offers a lot of good content
+
+About Thomas Ahn
+Thomas Ahn is the founder and CEO of Mad Ventures, Inc. He directs the overall vision and operation of this micro venture capital company. He is an active entrepreneur, an expert in technology research and also in nurturing technology start-ups. Thomas has successfully incubated several IT companies in Korea including Mobile Culture, iCity and Acrotech. Prior to Mad Ventures, he was a venture capitalist with Hanmi Technology Investment and has taught various topics in entrepreneurship at the Korean Venture Capital Institute. He holds a B.Sc degree from POSTECH in Korea and a B.Com degree from the University of Victoria in Canada.
+
+SKMurphy Suggestions for an Investment Presentation
+The format we like suggest for an investment pitch is normally 8-10 slides (with more backup, but where you can get through the basic pitch in 5-6 minutes and start taking questions):
+
+If you have bootstrapped your startup to the point where you have a business that both merits and would benefit from outside investment then you may need to consider seeking investment. Here are some common formats we have seen for an investor presentation.
+
+Summary / Elevator pitch
+Problem / Need
+Your Solution / Value Proposition
+Secret Sauce / Magic / Proprietary Technology / Unfair Advantage
+Market / Business Model (How you make money)
+Go To Market Plan (e.g. customer acquisition / sales model / distribution channels)
+Competition / current alternatives / status quo
+Team
+Financial Projections and Key Metrics (Impact of Funds on Business / value created)
+Traction / Results to Date / Timeline with Key Milestones for use of funds
+You should also ask your prospective investor if they have a preferred format and only e-mail them a one page an exec summary prior to the meeting. You should not pay to pitch.
+
+Some Other Investment Presentation Templates To Consider
+
+Guy Kawasaki
+http://guykawasaki.com/the-only-10-slides-you-need-in-your-pitch/
+http://guykawasaki.com/how-to-create-an-enchanting-pitch-officeandguyk/
+Art of the Start
+Pitching Hacks by Venture Hacks
+Deck
+Pitching Hacks [PDF]
+Related: Venture Hacks Bible [PDF]
+Dave McClure 500 Startups
+http://www.slideshare.net/dmc500hats/how-to-pitch-a-vc-or-angel-13504703
+see also this for his strategy http://www.slideshare.net/dmc500hats/building-startup-ecosystems-berlin-june-2015
+Elevator pitch
+500 startups
+We solve [problem] by providing [advantage], to help [target] accomplish [target’s goal]. We make money by charging [customers] to get [benefit].
+Crossing the Chasm
+For (target customer)
+Who (statement of the need or opportunity)
+The (product name) is a (product category)
+That (statement of key benefit – that is, compelling reason to buy)
+Unlike (primary competitive advantage)
+Our product (statement of primary differentiation).
