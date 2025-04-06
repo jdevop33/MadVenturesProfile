@@ -1,0 +1,159 @@
+Embedded Posts
+Embedded Posts are a simple way to put public posts - by a Page or a person on Facebook - into the content of your web site or web page. Only public posts from Facebook Pages and profiles can be embedded.
+
+Code Generator
+URL of post
+https://www.facebook.com/babydragoncanada/posts/pfbid0iNZQUDXVCZERxK7V4t6Bf7BjXj5FAhLAzQeRDZ3eta9ppKoFyeqzovoZZZQAWG15l
+The pixel width of the post (between 350 and 750)
+500
+ Include full post
+Get Code
+Settings
+Setting	Description	Default
+data-href
+
+The absolute URL of the post.
+
+n/a
+
+data-lazy
+
+true means use the browser's lazy-loading mechanism by setting the loading="lazy" iframe attribute. The effect is that the browser does not render the plugin if it's not close to the viewport and might never be seen. Can be one of true or false (default).
+
+false
+
+data-width
+
+The width of the post. Min. 350 pixel; Max. 750 pixel. Leave empty to use fluid width.
+
+fluid width
+
+data-show-text
+
+Applied to photo post. Set to true to include the text from the Facebook post, if any.
+
+false
+
+Getting your Code from a Post
+1. Navigate to your Post
+You can get the embed code directly from the post itself. If the post is public, click on the icon that appears in the top right corner of the post on Facebook.
+
+Choose Embed Post from the drop down menu:
+
+
+For photo posts select the Embed Post button on the bottom right:
+
+
+2. Copy and Paste Code
+You will see a dialog appear with the code to embed your post in it. Copy and paste this code into your web page in the place where you want it to appear.
+
+
+For technical details please refer to the section Add Code Manually
+
+Add Code Manually
+Besides the Code Generator, you can also embed the code manually.
+
+1. Get Post URL
+First you need to get the URL of a post you wish to share. The post must be public, which is indicated by the gray world icon, right next the post's publishing time: 
+
+For testing you can use this example URL:
+
+"https://www.facebook.com/20531316728/posts/10154009990506729/"
+2. Load JavaScript SDK
+To use the Embedded Posts Plugin, or any other Social Plugin, you need to add the Facebook JavaScript SDK to your website. You need to load the SDK only once on a page, ideally right after the opening <body> tag:
+
+<div id="fb-root"></div>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+You can find more help on implementing the JavaScript SDK in the JavaScript SDK - Quickstart.
+
+3. Place Embedded Post Tag
+Next place the Embedded Post tag at any place of your website. Replace {your-post-url} with your posts' URL.
+
+<div class="fb-post" data-href="{your-post-url}"></div>
+4. Testing
+Once you completed these steps you're able to test your Embedded Post. A completed integration will look like something like this:
+
+<html>
+  <title>My Website</title>
+<body>
+  <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>  
+  <div class="fb-post" 
+      data-href="https://www.facebook.com/20531316728/posts/10154009990506729/"
+      data-width="500"></div>
+</body>
+</html>
+The result of our test example is shown in the screenshot below.
+
+
+5. Customizing
+Follow the instructions further down this page to adjust size, language and other settings.
+
+Getting a post's URL
+There may be scenarios in which your embed code is created by a CMS and you just need the raw post URL. There are two ways to get a post's URL:
+
+Copy the URL of the permalink from your browser's address bar.
+Right-click the post's publishing time and copy the link address.
+Both methods are highlighted in red in the screenshot below.
+
+
+Via Graph API
+If you wish to automatically integrate embedded posts into your website, you probably use the Graph API to aggregate posts. For example you may use the Page Feed API endpoint and the fields parameter permalink_url.
+
+The response to your request to /{page-id}/feed?fields=permalink_url will send you a response like this:
+
+{
+  "data": [
+    {
+      "id": "1234567890_3456789012", 
+      "permalink_url": "https://www.facebook.com/1234567890/posts/3456789012"
+    }
+  ]
+}
+Layout on Desktop
+You can adjust the width of Embedded Posts on desktop via the data-width attribute in the Embed Post tag as shown in the example below. Chose a value between 350 and 750 pixels.
+
+Do not use CSS style tags to adjust the size of a plugin. It may result into display errors.
+
+<!-- WRONG! -->
+<style type="text/css">
+.fb-post {
+  width: 500px;
+}
+</style>
+<div 
+  class="fb-post"
+  data-href="{your-post-url}">
+</div>
+
+<!-- CORRECT -->
+<div 
+  class="fb-post" 
+  data-width="500"
+  data-href="{your-post-url}">
+</div>
+Layout on Mobile Web
+On mobile web, Embedded Posts automatically scale to the width of the container.
+
+WordPress
+If you are already using the Facebook SDK for JavaScript in your WordPress site you can use the Embedded Posts plugin by simply adding the fb-post tag to your WordPress post:
+
+<div class="fb-post" data-href="https://www.facebook.com/20531316728/posts/10154009990506729/" data-width="500"></div>
+If you are not using the Facebook SDK for JavaScript and embed a Post via the copy&paste snippet, which you can get from each Facebook post, the Embedded Posts plugin will most likely not render as WordPress will convert all & chars to #038; and break the plugin.
+
+Instead use the following code to add the plugin:
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml      : true,
+      version    : 'v22.0'
+    });
+  }; 
+</script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+  
+<div 
+  class="fb-post" 
+  data-href="https://www.facebook.com/20531316728/posts/10154009990506729/" 
+  data-width="500"></div>
+A new, easy WordPress integration will be released in the near future.
