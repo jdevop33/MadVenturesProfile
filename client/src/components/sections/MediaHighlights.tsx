@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Video, Users, FileText } from "lucide-react";
+import { Video, Users, FileText, Podcast, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const MediaHighlights = () => {
   const mediaItems = [
@@ -20,6 +21,13 @@ const MediaHighlights = () => {
       icon: <FileText className="h-16 w-16" />,
       title: "Contract with KPMG",
       description: "Thomas Ahn, CEO of Mad Ventures, Inc. Signs a contract with Sang-Kiet Ly from KPMG.",
+    },
+    {
+      type: "Podcast",
+      icon: <Podcast className="h-16 w-16" />,
+      title: "Mad Ventures, Venture Capital to Change the World",
+      description: "May 2024 interview with Thomas Ahn by Lincoln Stoller PhD, discussing 22 years of venture capital experience and how MAD Ventures is changing the world.",
+      link: "https://mindstrengthbalance.substack.com/p/mad-ventures-venture-capital-to-change",
     },
   ];
 
@@ -45,6 +53,19 @@ const MediaHighlights = () => {
                 </div>
                 <h3 className="mt-1 text-lg font-medium text-gray-900">{item.title}</h3>
                 <p className="mt-2 text-gray-600">{item.description}</p>
+                {item.link && (
+                  <div className="mt-4">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="w-full" 
+                      onClick={() => window.open(item.link, '_blank')}
+                    >
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Read on Substack
+                    </Button>
+                  </div>
+                )}
               </CardContent>
             </Card>
           ))}
