@@ -18,6 +18,7 @@ const Navbar = () => {
     { name: "About", href: "#about" },
     { name: "Company", href: "#company" },
     { name: "I-Cubation", href: "#icubation" },
+    { name: "Vision", href: "#vision" },
     { name: "Media", href: "#media" },
   ];
 
