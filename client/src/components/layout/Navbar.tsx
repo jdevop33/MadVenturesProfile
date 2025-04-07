@@ -40,7 +40,16 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <span className="text-primary font-bold text-xl">MAD Ventures</span>
+            <a 
+              href="#" 
+              className="text-primary font-bold text-xl cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
+              MAD Ventures
+            </a>
           </div>
           
           {/* Desktop navigation */}
