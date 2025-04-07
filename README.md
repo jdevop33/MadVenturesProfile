@@ -4,11 +4,12 @@ Thomas Ahn's professional profile website showcasing MAD Ventures.
 
 ## Project Overview
 
-This project is a static website built with:
-- Vite for frontend build
+This project is a Next.js application that was migrated from a Vite/React SPA. It uses:
+
+- Next.js for server-rendered React
 - React for UI components
-- Express for API routes
 - Tailwind CSS for styling
+- Express API (via Next.js API routes)
 
 ## Development
 
@@ -28,10 +29,10 @@ This project is configured for seamless deployment on Vercel:
 
 1. Connect your GitHub repository to Vercel
 2. Use the following deployment settings:
-   - Build Command: `npm run vercel-build`
-   - Output Directory: `dist/public`
+   - Framework Preset: `Next.js`
+   - Root Directory: `.`
+   - Build Command: `npm run build`
    - Install Command: `npm install`
-   - Framework Preset: `Other`
 
 ### Manual Deployment
 
@@ -45,49 +46,45 @@ npm i -g vercel
 vercel
 ```
 
-### Deployment Configuration
-
-The project includes a `vercel.json` file with all necessary configuration:
-- Proper routing for API endpoints and client-side navigation
-- Security headers
-- Cache optimization
-- Static file handling
-
 ## Project Structure
 
-- `client/`: Frontend React application
+- `app/`: Next.js App Router components
+  - `layout.tsx`: Root layout component
+  - `[[...slug]]/`: Catch-all route for client-side SPA
+- `client/`: Original React application (used within Next.js)
   - `src/`: React components and application logic
-  - `public/`: Static assets
-- `server/`: Backend Express server
-  - `routes.ts`: API endpoint definitions
-  - `vercel.ts`: Serverless adapter for Vercel
+  - `public/`: Static assets (copied to Next.js public folder)
+- `components/`: Shared React components
+- `styles/`: Global styles
+- `server/`: Backend Express server code
 - `shared/`: Shared types and utilities
 - `attached_assets/`: Media files and assets
+
+## Migration Notes
+
+This project has been migrated from Vite to Next.js. The migration strategy:
+
+1. Initial migration keeps the existing client-side SPA intact by using Next.js as a wrapper
+2. Future improvements will incrementally adopt Next.js features:
+   - Server Components for better performance
+   - Image optimization
+   - API Routes to replace Express server
 
 ## Troubleshooting Deployment Issues
 
 If you encounter deployment issues:
 
-1. **API Routes Not Working**: 
-   - Ensure `/api/*` routes in `vercel.json` are correctly configured
-   - Check the serverless function logs in Vercel dashboard
+1. **Static Asset Issues**:
+   - Assets are copied from `client/public` to `public` directory
+   - Check if the copy-assets script ran before build
 
 2. **Build Failures**:
    - Verify that all dependencies are properly installed
    - Check for any TypeScript errors with `npm run check`
-   - Ensure build scripts in `package.json` are correctly defined
 
-3. **Static Assets Not Loading**:
-   - Verify that paths in your code use relative paths
-   - Check cache headers in `vercel.json`
+3. **Client-Side Code Issues**:
+   - The original React app is loaded with `dynamic` import and `ssr: false`
+   - Check for client-side dependencies that might not be compatible with Next.js
 
-4. **Routing Issues**:
-   - Ensure `rewrites` in `vercel.json` are correctly configured
-   - Remember that client-side routing needs proper fallback configuration
-
-## Production Optimizations
-
-- Assets have appropriate caching headers
-- Security headers implemented
-- Static assets optimized
-- Client-side routing properly configured 
+4. **Environmental Variable Updates**:
+   - All `VITE_` prefixed environment variables changed to `NEXT_PUBLIC_` 

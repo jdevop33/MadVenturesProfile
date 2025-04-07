@@ -37,6 +37,10 @@ yarn-error.log*
 .vercel
 .turbo
 
+# Next.js
+next-env.d.ts
+
+# Server public
 server/public
 vite.config.ts.*
 *.tar.gz

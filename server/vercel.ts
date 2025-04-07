@@ -1,5 +1,6 @@
 // Vercel Serverless API Handler
 import express from 'express';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { registerRoutes } from './routes';
 
 // Initialize Express app
@@ -11,39 +12,38 @@ app.use(express.urlencoded({ extended: false }));
 registerRoutes(app);
 
 // Export Vercel serverless handler
-export default async function handler(req, res) {
-  // Adapt Vercel requests to Express
-  return new Promise((resolve, reject) => {
-    // Create Express response object with Vercel's res methods
-    const expressRes = {
+export default async function handler(
+  req: VercelRequest, 
+  res: VercelResponse
+): Promise<void> {
+  // Simple proxy approach instead of trying to adapt request types
+  return new Promise<void>((resolve, reject) => {
+    // We'll just proxy the handler call and bypass type checking
+    // This is safe because Express can handle the basic request/response properties
+    const handler = app as any;
+    
+    // Create a wrapper for the response to handle completion
+    const resWrapper = {
       ...res,
-      status: (code) => {
-        res.status(code);
-        return expressRes;
-      },
-      json: (data) => {
-        res.json(data);
-        resolve();
-        return expressRes;
-      },
-      send: (body) => {
-        res.send(body);
-        resolve();
-        return expressRes;
-      },
-      end: (chunk) => {
+      end: function(chunk?: any) {
         res.end(chunk);
         resolve();
-        return expressRes;
+        return this;
       },
-      setHeader: (name, value) => {
-        res.setHeader(name, value);
-        return expressRes;
+      send: function(body: any) {
+        res.send(body);
+        resolve();
+        return this;
+      },
+      json: function(body: any) {
+        res.json(body);
+        resolve();
+        return this;
       }
     };
-
-    // Process request with Express
-    app(req, expressRes, (err) => {
+    
+    // Call the Express app with the Vercel request/response
+    handler(req, resWrapper, (err: any) => {
       if (err) {
         console.error('Express error:', err);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -52,8 +52,8 @@ export default async function handler(req, res) {
         // If no route matched, return 404
         if (!res.writableEnded) {
           res.status(404).json({ error: 'Not Found' });
+          resolve();
         }
-        resolve();
       }
     });
   });
