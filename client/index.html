@@ -4,14 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <title>Thomas Ahn | Founder & CEO | MAD Ventures</title>
+    <meta name="description" content="Thomas Ahn is the Founder & CEO of MAD Ventures, focusing on food and beverage, IT, and software investments." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="Thomas Ahn | Founder & CEO | MAD Ventures" />
+    <meta property="og:description" content="MAD Ventures helps create $100 Million technology companies on Vancouver Island" />
+    <meta property="og:type" content="website" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- This script injects a replit badge into the page, please feel free to remove this line -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-badge-v3.js"></script>
+    <!-- Only include Replit badge in development -->
+    <script>
+      if (window.location.hostname.includes('replit')) {
+        const script = document.createElement('script');
+        script.src = 'https://replit.com/public/js/replit-badge-v3.js';
+        document.body.appendChild(script);
+      }
+    </script>
   </body>
 </html>
