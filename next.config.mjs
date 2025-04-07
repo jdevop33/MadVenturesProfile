@@ -2,20 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [],
-    unoptimized: process.env.NODE_ENV === 'development',
+    // List external domains if using next/image with external URLs
+    // domains: ['example.com'],
+    // Explicitly disable image optimization for broader platform compatibility
+    // Re-evaluate if deploying to Vercel where optimization is built-in
+    unoptimized: true,
   },
-  // Configure rewrites to handle API routes properly
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: process.env.NODE_ENV === 'development' 
-          ? 'http://localhost:5000/api/:path*' // Dev server
-          : '/api/:path*', // Production
-      },
-    ];
-  },
+  // REMOVED: rewrites section is no longer needed
+
   // Add security headers
   async headers() {
     return [
@@ -44,4 +38,4 @@ const nextConfig = {
   },
 }
 
-export default nextConfig 
+export default nextConfig

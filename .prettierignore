@@ -1,0 +1,17 @@
+# Ignore artifacts:
+node_modules
+.next
+dist
+
+# Ignore lock files:
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore generated files:
+public
+
+# Ignore configuration files (optional, but often useful):
+next.config.mjs
+postcss.config.js
+tailwind.config.ts
