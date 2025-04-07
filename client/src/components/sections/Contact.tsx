@@ -37,9 +37,10 @@ const Contact = () => {
     },
   });
 
+  // Form is handled by HeroTofu
   const onSubmit = (data: FormValues) => {
     console.log("Form submitted:", data);
-    // In a real application, you would submit this data to your backend
+    // The actual submission happens through the form action
     form.reset();
   };
 
@@ -47,24 +48,24 @@ const Contact = () => {
     {
       icon: <MapPin className="h-6 w-6 mr-3 mt-1" />,
       title: "Location",
-      value: "Victoria, BC, Canada",
+      value: "705-100 Saghalie Rd, Victoria, BC V9A 0A1, Canada",
     },
     {
       icon: <Mail className="h-6 w-6 mr-3 mt-1" />,
       title: "Email",
-      value: "contact@madventures.com",
+      value: "mad@mad-ventures.com",
     },
     {
       icon: <Phone className="h-6 w-6 mr-3 mt-1" />,
       title: "Phone",
-      value: "+1 (250) 555-0123",
+      value: "(408) 728-4213",
     },
   ];
 
   const socialLinks = [
+    { icon: <Linkedin className="h-6 w-6" />, label: "LinkedIn", href: "https://www.linkedin.com/in/thomas-ahn-3955416/" },
     { icon: <Facebook className="h-6 w-6" />, label: "Facebook", href: "#" },
     { icon: <Twitter className="h-6 w-6" />, label: "Twitter", href: "#" },
-    { icon: <Linkedin className="h-6 w-6" />, label: "LinkedIn", href: "#" },
   ];
 
   return (
@@ -120,7 +121,16 @@ const Contact = () => {
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a message</h3>
 
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <form 
+                    action="https://public.herotofu.com/v1/268aa220-134b-11f0-aae6-e97e0ddab94b" 
+                    method="post" 
+                    acceptCharset="UTF-8"
+                    onSubmit={form.handleSubmit(onSubmit)} 
+                    className="space-y-6"
+                  >
+                    {/* HeroTofu will handle form submission */}
+                    <input type="hidden" name="_redirect" value={window.location.href} />
+                    
                     <FormField
                       control={form.control}
                       name="name"
@@ -128,7 +138,7 @@ const Contact = () => {
                         <FormItem>
                           <FormLabel>Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your name" {...field} className="bg-gray-50" />
+                            <Input placeholder="Your name" {...field} name="name" className="bg-gray-50" />
                           </FormControl>
                         </FormItem>
                       )}
@@ -141,7 +151,7 @@ const Contact = () => {
                         <FormItem>
                           <FormLabel>Email</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your email" {...field} className="bg-gray-50" />
+                            <Input placeholder="Your email" {...field} name="email" className="bg-gray-50" />
                           </FormControl>
                         </FormItem>
                       )}
@@ -154,7 +164,7 @@ const Contact = () => {
                         <FormItem>
                           <FormLabel>Subject</FormLabel>
                           <FormControl>
-                            <Input placeholder="Subject" {...field} className="bg-gray-50" />
+                            <Input placeholder="Subject" {...field} name="subject" className="bg-gray-50" />
                           </FormControl>
                         </FormItem>
                       )}
@@ -170,6 +180,7 @@ const Contact = () => {
                             <Textarea
                               placeholder="Your message"
                               {...field}
+                              name="message"
                               className="bg-gray-50"
                               rows={4}
                             />
