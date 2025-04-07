@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -14,10 +20,15 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const navItems = [
+  // Primary navigation items (always visible)
+  const primaryNavItems = [
     { name: "About", href: "#about" },
     { name: "Company", href: "#company" },
     { name: "I-Cubation", href: "#icubation" },
+  ];
+
+  // Secondary navigation items (in dropdown)
+  const secondaryNavItems = [
     { name: "Vision", href: "#vision" },
     { name: "Media", href: "#media" },
     { name: "Interview", href: "#interview" },
@@ -31,16 +42,35 @@ const Navbar = () => {
           <div className="flex items-center">
             <span className="text-primary font-bold text-xl">MAD Ventures</span>
           </div>
-          <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+          
+          {/* Desktop navigation */}
+          <nav className="hidden md:flex items-center space-x-6">
+            {/* Primary nav items */}
+            {primaryNavItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-500 hover:text-gray-900 font-medium"
+                className="text-gray-600 hover:text-gray-900 font-medium"
               >
                 {item.name}
               </a>
             ))}
+            
+            {/* Dropdown for secondary items */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-gray-600 hover:text-gray-900 font-medium">
+                More <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                {secondaryNavItems.map((item) => (
+                  <DropdownMenuItem key={item.name} asChild>
+                    <a href={item.href}>{item.name}</a>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
+            {/* Contact button */}
             <a 
               href="#contact"
               className="bg-primary text-white px-4 py-2 rounded-md font-medium hover:bg-primary/90 transition"
@@ -48,6 +78,8 @@ const Navbar = () => {
               Contact
             </a>
           </nav>
+          
+          {/* Mobile menu button */}
           <div className="flex items-center md:hidden">
             <button
               type="button"
@@ -67,7 +99,8 @@ const Navbar = () => {
         } bg-white border-b border-gray-200`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1">
-          {navItems.map((item) => (
+          {/* Show all nav items in mobile menu */}
+          {[...primaryNavItems, ...secondaryNavItems].map((item) => (
             <a
               key={item.name}
               href={item.href}
