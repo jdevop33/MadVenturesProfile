@@ -51,6 +51,13 @@ const MediaHighlights = () => {
       description: "Thomas Ahn, CEO of Mad Ventures, Inc. Signs a contract with Sang-Kiet Ly from KPMG.",
     },
     {
+      type: "Article",
+      icon: <FileText className="h-16 w-16" />,
+      title: "Make Boosting Your Self Confidence A New Year's Resolution",
+      description: "Thomas Ahn featured in a Michelle McIntyre article about entrepreneurship and confidence as a key factor for startup success in 2021.",
+      link: "https://michellermcintyre.wordpress.com/tag/thomas-ahn/",
+    },
+    {
       type: "Podcast",
       icon: <Podcast className="h-16 w-16" />,
       title: "Mad Ventures, Venture Capital to Change the World",
@@ -99,7 +106,7 @@ const MediaHighlights = () => {
                       onClick={() => window.open(item.link, '_blank')}
                     >
                       <ExternalLink className="h-4 w-4 mr-2" />
-                      Read on Substack
+                      {item.type === "Podcast" ? "Listen on Substack" : "Read Article"}
                     </Button>
                   </div>
                 )}

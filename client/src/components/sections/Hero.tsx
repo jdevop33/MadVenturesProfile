@@ -25,25 +25,14 @@ const Hero = () => {
             </div>
           </div>
           <div className="md:w-1/2 flex justify-center">
-            <div className="relative rounded-xl overflow-hidden shadow-xl h-80 w-80 bg-gradient-to-br from-primary-100 to-primary-200">
-              <div className="absolute inset-0 flex items-center justify-center text-primary-400">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-32 w-32"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1"
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-                </svg>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-primary text-white p-3 text-center">
-                Thomas Ahn, CEO
+            <div className="relative rounded-xl overflow-hidden shadow-xl h-96 w-96">
+              <img 
+                src="/images/thomas-ahn.png" 
+                alt="Thomas Ahn, CEO of MAD Ventures" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-primary/80 text-white p-3 text-center backdrop-blur-sm">
+                Thomas Ahn, CEO of MAD Ventures
               </div>
             </div>
           </div>
