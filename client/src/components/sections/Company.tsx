@@ -25,26 +25,31 @@ const Company = () => {
     {
       icon: <Calendar className="h-6 w-6 text-primary" />,
       label: "Founded",
-      value: "2002",
+      value: "2004",
     },
     {
       icon: <Building className="h-6 w-6 text-primary" />,
       label: "Headquarters",
-      value: "Victoria, Canada",
+      value: "Victoria, BC, Canada",
     },
     {
       icon: <Target className="h-6 w-6 text-primary" />,
       label: "Investment Focus",
-      value: "Sector Agnostic",
+      value: "Early Stage Venture",
     },
     {
       icon: <Award className="h-6 w-6 text-primary" />,
       label: "Classification",
-      value: "Accelerator & Incubator",
+      value: "Venture Capital",
+    },
+    {
+      icon: <Building className="h-6 w-6 text-primary" />,
+      label: "Team Size",
+      value: "11-50 Employees",
     },
   ];
   
-  const investmentSectors = ["Enterprise Applications", "High Tech", "HealthTech"];
+  const investmentSectors = ["Food & Beverage", "IT", "Software", "Enterprise Applications"];
 
   return (
     <section id="company" className="py-16 bg-gray-50">
@@ -115,21 +120,60 @@ const Company = () => {
         
         <Card className="overflow-hidden accent-top">
           <CardContent className="p-8">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Recent Investments</h3>
-            <div className="bg-white p-5 rounded-lg shadow-sm">
-              <div className="flex justify-between items-center mb-4">
-                <div>
-                  <h4 className="font-semibold text-lg">Innerspace</h4>
-                  <p className="text-gray-600 text-sm">Virtual reality-based training systems for the life science industry</p>
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">Portfolio Companies</h3>
+            <div className="space-y-4">
+              <div className="bg-white p-5 rounded-lg shadow-sm">
+                <div className="flex justify-between items-center mb-4">
+                  <div>
+                    <h4 className="font-semibold text-lg">Tasteport</h4>
+                    <p className="text-gray-600 text-sm">Food and beverage innovation</p>
+                  </div>
+                  <Badge>Funding Round</Badge>
                 </div>
-                <Badge>Series A</Badge>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  <span className="text-sm text-gray-600">Investment Date: May 31, 2022</span>
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2 mt-2">
-                <span className="text-sm text-gray-600">Location: Austria</span>
-                <span className="mx-2 text-gray-300">|</span>
-                <span className="text-sm text-gray-600">Investment Date: Feb 2024</span>
-                <span className="mx-2 text-gray-300">|</span>
-                <span className="text-sm text-gray-600">Amount: $6.17M</span>
+              
+              <div className="bg-white p-5 rounded-lg shadow-sm">
+                <div className="flex justify-between items-center mb-4">
+                  <div>
+                    <h4 className="font-semibold text-lg">Swarm Analytics</h4>
+                    <p className="text-gray-600 text-sm">Advanced analytics solutions</p>
+                  </div>
+                  <Badge>Venture Round</Badge>
+                </div>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  <span className="text-sm text-gray-600">Investment Date: Nov 24, 2021</span>
+                </div>
+              </div>
+              
+              <div className="bg-white p-5 rounded-lg shadow-sm">
+                <div className="flex justify-between items-center mb-4">
+                  <div>
+                    <h4 className="font-semibold text-lg">Indel Therapeutics</h4>
+                    <p className="text-gray-600 text-sm">Pharmaceutical research and development</p>
+                  </div>
+                  <Badge>Series B</Badge>
+                </div>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  <span className="text-sm text-gray-600">Investment Date: Apr 28, 2011</span>
+                </div>
+              </div>
+              
+              <div className="bg-white p-5 rounded-lg shadow-sm">
+                <div className="flex justify-between items-center mb-4">
+                  <div>
+                    <h4 className="font-semibold text-lg">Innerspace</h4>
+                    <p className="text-gray-600 text-sm">Virtual reality-based training systems for the life science industry</p>
+                  </div>
+                  <Badge>Series A</Badge>
+                </div>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  <span className="text-sm text-gray-600">Location: Austria</span>
+                  <span className="mx-2 text-gray-300">|</span>
+                  <span className="text-sm text-gray-600">Investment Date: Feb 2024</span>
+                </div>
               </div>
             </div>
           </CardContent>

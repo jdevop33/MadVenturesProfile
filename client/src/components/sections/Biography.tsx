@@ -22,8 +22,8 @@ const Biography = () => {
     {
       role: "CEO & Founder",
       company: "MAD Ventures",
-      period: "2002 - Present",
-      description: "Leading sector agnostic startup incubator based in Victoria, BC, Canada."
+      period: "2004 - Present",
+      description: "Leading early-stage venture capital firm based in Victoria, BC, Canada."
     },
     {
       role: "Venture Capitalist",
